@@ -2,9 +2,9 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-define('TITLE','Editar vaga');
+define('TITLE','Editar heroi');
 
-use \App\Entity\Vaga;
+use \App\Entity\Heroi;
 
 //VALIDAÇÃO DO ID
 if(!isset($_GET['id']) or !is_numeric($_GET['id'])){
@@ -13,21 +13,20 @@ if(!isset($_GET['id']) or !is_numeric($_GET['id'])){
 }
 
 //CONSULTA A VAGA
-$obVaga = Vaga::getVaga($_GET['id']);
+$obHeroi = Heroi::getHeroi($_GET['id']);
 
 //VALIDAÇÃO DA VAGA
-if(!$obVaga instanceof Vaga){
+if(!$obHeroi instanceof Heroi){
   header('location: index.php?status=error');
   exit;
 }
 
 //VALIDAÇÃO DO POST
-if(isset($_POST['titulo'],$_POST['descricao'],$_POST['ativo'])){
+if(isset($_POST['nome'],$_POST['identidade_secreta'])){
 
-  $obVaga->titulo    = $_POST['titulo'];
-  $obVaga->descricao = $_POST['descricao'];
-  $obVaga->ativo     = $_POST['ativo'];
-  $obVaga->atualizar();
+  $obHeroi->nome    = $_POST['nome'];
+  $obHeroi->identidade_secreta = $_POST['identidade_secreta'];
+  $obHeroi->atualizar();
 
   header('location: index.php?status=success');
   exit;

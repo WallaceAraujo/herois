@@ -1,24 +1,31 @@
 <?php
 
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
-define('TITLE','Cadastrar vaga');
+define('TITLE', 'Cadastrar heroi');
 
-use \App\Entity\Vaga;
-$obVaga = new Vaga;
+use \App\Entity\Heroi;
+
+$obHeroi = new Heroi;
 
 //VALIDAÇÃO DO POST
-if(isset($_POST['titulo'],$_POST['descricao'],$_POST['ativo'])){
+if (isset($_POST['nome'], $_POST['identidade_secreta'])) {
 
-  $obVaga->titulo    = $_POST['titulo'];
-  $obVaga->descricao = $_POST['descricao'];
-  $obVaga->ativo     = $_POST['ativo'];
-  $obVaga->cadastrar();
+    if(!isset($_POST["poderes"])){
+        header('location: index.php?status=error');
+    }
 
-  header('location: index.php?status=success');
-  exit;
+    $poderes = explode(",", $_POST["poderes"]);
+    $poderes = (is_array($poderes) ? $poderes : [$_POST["poderes"]]);
+    $obHeroi->nome = $_POST['nome'];
+    $obHeroi->identidade_secreta = $_POST['identidade_secreta'];
+    $obHeroi->poderes = $poderes;
+    $obHeroi->cadastrar();
+
+    header('location: index.php?status=success');
+    exit;
 }
 
-include __DIR__.'/includes/header.php';
-include __DIR__.'/includes/formulario.php';
-include __DIR__.'/includes/footer.php';
+include __DIR__ . '/includes/header.php';
+include __DIR__ . '/includes/formulario.php';
+include __DIR__ . '/includes/footer.php';

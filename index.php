@@ -1,11 +1,11 @@
 <?php
 
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
-use \App\Entity\Vaga;
+use \App\Entity\Heroi;
 
-$vagas = Vaga::getVagas();
+$herois = Heroi::getHerois();
 
-include __DIR__.'/includes/header.php';
-include __DIR__.'/includes/listagem.php';
-include __DIR__.'/includes/footer.php';
+include __DIR__ . '/includes/header.php';
+include __DIR__ . '/includes/listagem.php';
+include __DIR__ . '/includes/footer.php';
