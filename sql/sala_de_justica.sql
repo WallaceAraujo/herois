@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 21-Jul-2021 às 22:51
--- Versão do servidor: 10.4.19-MariaDB
--- versão do PHP: 8.0.7
+-- Host: mysql
+-- Tempo de geração: 22/07/2021 às 21:11
+-- Versão do servidor: 8.0.23
+-- Versão do PHP: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,23 +18,23 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `sala_de_justica`
+-- Banco de dados: `liga_da_justica`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `herois`
+-- Estrutura para tabela `herois`
 --
 
 CREATE TABLE `herois` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `nome` varchar(250) NOT NULL,
   `identidade_secreta` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `herois`
+-- Despejando dados para a tabela `herois`
 --
 
 INSERT INTO `herois` (`id`, `nome`, `identidade_secreta`) VALUES
@@ -49,27 +49,61 @@ INSERT INTO `herois` (`id`, `nome`, `identidade_secreta`) VALUES
 (9, 'Arqueiro Verde', 'Oliver Queen'),
 (10, 'Cacador de Marte', 'Jonn Jonzz'),
 (11, 'Mulher-Gavião', 'Shiera Sanders'),
-(12, 'Super Girl', 'Kara Danvers');
+(12, 'Super Girl', 'Kara Danvers'),
+(17, 'Wesley Silva', 'Nascimento');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `poderes`
+--
+
+CREATE TABLE `poderes` (
+  `id` int NOT NULL,
+  `heroi_id` int NOT NULL,
+  `titulo` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Despejando dados para a tabela `poderes`
+--
+
+INSERT INTO `poderes` (`id`, `heroi_id`, `titulo`) VALUES
+(4, 17, 'Teste 1'),
+(5, 17, 'Teste 2'),
+(6, 17, 'Teste 3');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `herois`
+-- Índices de tabela `herois`
 --
 ALTER TABLE `herois`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- Índices de tabela `poderes`
+--
+ALTER TABLE `poderes`
+  ADD KEY `id` (`id`);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `herois`
 --
 ALTER TABLE `herois`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT de tabela `poderes`
+--
+ALTER TABLE `poderes`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

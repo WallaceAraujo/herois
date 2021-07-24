@@ -16,11 +16,14 @@ if (isset($_POST['nome'], $_POST['identidade_secreta'])) {
     }
 
     $poderes = explode(",", $_POST["poderes"]);
+
     $poderes = (is_array($poderes) ? $poderes : [$_POST["poderes"]]);
+
+
     $obHeroi->nome = $_POST['nome'];
     $obHeroi->identidade_secreta = $_POST['identidade_secreta'];
     $obHeroi->poderes = $poderes;
-    $obHeroi->cadastrar();
+    $result = $obHeroi->cadastrar();
 
     header('location: index.php?status=success');
     exit;

@@ -23,7 +23,7 @@
 
         <div class="form-group">
             <label>Poderes</label>
-            <input type="text" class="form-control" name="poderes" value="">
+            <input type="text" class="form-control" name="poderes" value="<?= $obHeroi->poderes ?>">
             <p>Separe os poderes com ","</p>
         </div>
 

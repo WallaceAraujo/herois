@@ -9,7 +9,7 @@ class Heroi
 {
 
     /**
-     * Identificador único da vaga
+     * Identificador único do heroi
      * @var integer
      */
     public $id;
@@ -39,11 +39,9 @@ class Heroi
      */
     public function cadastrar()
     {
-        //DEFINIR A DATA
-        $this->data = date('Y-m-d H:i:s');
-
         //INSERIR A VAGA NO BANCO
         $obDatabase = new Database('herois');
+
         $this->id = $obDatabase->insert([
             'nome' => $this->nome,
             'identidade_secreta' => $this->identidade_secreta,
@@ -58,7 +56,7 @@ class Heroi
         }
 
         //RETORNAR SUCESSO
-        return true;
+        return $this->id;
     }
 
     /**
@@ -67,10 +65,22 @@ class Heroi
      */
     public function atualizar()
     {
-        return (new Database('herois'))->update('id = ' . $this->id, [
+        (new Database('herois'))->update('id = ' . $this->id, [
             'nome' => $this->nome,
             'identidade_secreta' => $this->identidade_secreta,
         ]);
+
+        (new Database('poderes'))->delete('heroi_id = ' . $this->id);
+
+        foreach($this->poderes as $poder){
+            $obDatabase = new Database('poderes');
+            $obDatabase->insert([
+                'heroi_id' => $this->id,
+                'titulo' => trim($poder)
+            ]);
+        }
+
+        return $this->id;
     }
 
     /**
@@ -113,6 +123,10 @@ class Heroi
     {
         $heroi = (new Database('herois'))->select('id = ' . $id)
             ->fetchObject(self::class);
+
+        $poderes = (new Database('poderes'))->select('heroi_id = ' . $heroi->id)
+            ->fetchAll(PDO::FETCH_CLASS, self::class);
+        $heroi->poderes = $poderes;
 
         return $heroi;
     }

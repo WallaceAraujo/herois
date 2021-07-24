@@ -142,7 +142,7 @@ class Database
         $query = 'UPDATE ' . $this->table . ' SET ' . implode('=?,', $fields) . '=? WHERE ' . $where;
 
         //EXECUTAR A QUERY
-        $this->execute($query, array_values($values));
+        //$this->execute($query, array_values($values));
 
         //RETORNA SUCESSO
         return true;

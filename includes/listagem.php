@@ -14,7 +14,9 @@
   }
 
   $resultados = '';
+
   foreach($herois as $heroi){
+
     $resultados .= '<tr>';
     $resultados .= '<td>'.$heroi->id.'</td>';
     $resultados .= '<td>'.$heroi->nome.'</td>';
@@ -39,13 +41,16 @@
     $resultados .= '</tr>';
   }
 
-  $resultados = strlen($resultados) ? $resultados : '<tr>
-                                                       <td colspan="6" class="text-center">
-                                                              Nenhuma heroi encontrado
-                                                       </td>
-                                                    </tr>';
+  if($resultados == ''){
+      $resultados = '<tr>
+                       <td colspan="5" class="text-center">
+                              Nenhuma heroi encontrado
+                       </td>
+                    </tr>';
+  }
 
 ?>
+
 <main>
 
   <?=$mensagem?>
@@ -58,9 +63,9 @@
 
   <section>
 
-    <table class="table bg-light mt-3">
+    <table class="table bg-light mt-3 table-striped">
         <thead>
-          <tr>
+          <tr class="centro">
             <th>ID</th>
             <th>Nome</th>
             <th>Idebtidade Secreta</th>
@@ -76,3 +81,4 @@
 
 
 </main>
+
