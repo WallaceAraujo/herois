@@ -47,6 +47,7 @@ class Heroi
             'identidade_secreta' => $this->identidade_secreta,
         ]);
 
+        //Percorre os poderes e cadastra no banco
         foreach($this->poderes as $poder){
             $obDatabase = new Database('poderes');
             $obDatabase->insert([
@@ -130,5 +131,21 @@ class Heroi
 
         return $heroi;
     }
+
+    /**
+     * Método responsável por buscar um heroi da marvel
+     * @param string $nome
+     * @return Heroi
+     */
+    public static function getHeroiMarvel($nome)
+    {
+        $heroi = (new Database('herois_marvel'))->select("nome like '%$nome%'" )
+            ->fetchObject(self::class);
+
+        return $heroi;
+    }
+
+
+
 
 }

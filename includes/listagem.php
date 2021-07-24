@@ -1,22 +1,27 @@
 <?php
 
   $mensagem = '';
-  if(isset($_GET['status'])){
+if (isset($_GET['status'])) {
     switch ($_GET['status']) {
-      case 'success':
-        $mensagem = '<div class="alert alert-success">Ação executada com sucesso!</div>';
-        break;
-
-      case 'error':
-        $mensagem = '<div class="alert alert-danger">Ação não executada!</div>';
-        break;
+        case 'success':
+            $mensagem = '<div class="alert alert-success">Ação executada com sucesso!</div>';
+            break;
+        case 'error':
+            $mensagem = '<div class="alert alert-danger">Ação não executada!</div>';
+            break;
+        case 'error_1':
+            $mensagem = '<div class="alert alert-danger">Infelizmente não podemos te contratar pois você trabalha ou já trabalhou para a nossa concorrente!</div>';
+            break;
+        case 'error_2':
+            $mensagem = '<div class="alert alert-danger">Infelizmente não podemos te contratar pois estamos contratando apenas herois, a contratação de copeiro, faxineiro etc, será em uma outra faze!</div>';
+            break;
     }
-  }
+}
+
 
   $resultados = '';
 
   foreach($herois as $heroi){
-
     $resultados .= '<tr>';
     $resultados .= '<td>'.$heroi->id.'</td>';
     $resultados .= '<td>'.$heroi->nome.'</td>';

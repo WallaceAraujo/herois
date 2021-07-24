@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Tempo de geração: 22/07/2021 às 21:11
+-- Tempo de geração: 24/07/2021 às 14:18
 -- Versão do servidor: 8.0.23
 -- Versão do PHP: 7.4.16
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `liga_da_justica`
+-- Banco de dados: `sala_de_justica`
 --
 
 -- --------------------------------------------------------
@@ -49,8 +49,27 @@ INSERT INTO `herois` (`id`, `nome`, `identidade_secreta`) VALUES
 (9, 'Arqueiro Verde', 'Oliver Queen'),
 (10, 'Cacador de Marte', 'Jonn Jonzz'),
 (11, 'Mulher-Gavião', 'Shiera Sanders'),
-(12, 'Super Girl', 'Kara Danvers'),
-(17, 'Wesley Silva', 'Nascimento');
+(12, 'Super Girl', 'Kara Danvers');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `herois_marvel`
+--
+
+CREATE TABLE `herois_marvel` (
+  `id` int NOT NULL,
+  `nome` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Despejando dados para a tabela `herois_marvel`
+--
+
+INSERT INTO `herois_marvel` (`id`, `nome`) VALUES
+(1, 'Homem de Ferro'),
+(2, 'Capitão América'),
+(3, 'Cyborg Dourado');
 
 -- --------------------------------------------------------
 
@@ -69,9 +88,7 @@ CREATE TABLE `poderes` (
 --
 
 INSERT INTO `poderes` (`id`, `heroi_id`, `titulo`) VALUES
-(4, 17, 'Teste 1'),
-(5, 17, 'Teste 2'),
-(6, 17, 'Teste 3');
+(17, 2, 'Eu sou Riiicoooooo');
 
 --
 -- Índices para tabelas despejadas
@@ -82,6 +99,13 @@ INSERT INTO `poderes` (`id`, `heroi_id`, `titulo`) VALUES
 --
 ALTER TABLE `herois`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `herois_marvel`
+--
+ALTER TABLE `herois_marvel`
+  ADD UNIQUE KEY `id_2` (`id`),
+  ADD KEY `id` (`id`);
 
 --
 -- Índices de tabela `poderes`
@@ -97,13 +121,19 @@ ALTER TABLE `poderes`
 -- AUTO_INCREMENT de tabela `herois`
 --
 ALTER TABLE `herois`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT de tabela `herois_marvel`
+--
+ALTER TABLE `herois_marvel`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `poderes`
 --
 ALTER TABLE `poderes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

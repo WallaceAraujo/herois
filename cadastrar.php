@@ -11,8 +11,24 @@ $obHeroi = new Heroi;
 //VALIDAÇÃO DO POST
 if (isset($_POST['nome'], $_POST['identidade_secreta'])) {
 
-    if(!isset($_POST["poderes"])){
+    if(!$_POST['nome'] OR !$_POST['identidade_secreta']){
         header('location: index.php?status=error');
+        exit;
+    }
+
+    //Verifica se o heroi existe na base de dados da marvel
+    $heroiMarvel = $obHeroi->getHeroiMarvel($_POST['nome']);
+
+    //Se for heroi da marvel redireciono com erro
+    if($heroiMarvel){
+        header('location: index.php?status=error_1');
+        exit;
+    }
+
+    //Se não existir poder redireciono com erro
+    if(!isset($_POST["poderes"]) OR $_POST["poderes"] == ""){
+        header('location: index.php?status=error_2');
+        exit;
     }
 
     $poderes = explode(",", $_POST["poderes"]);
