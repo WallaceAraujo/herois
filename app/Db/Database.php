@@ -12,7 +12,7 @@ class Database
      * Host de conexão com o banco de dados
      * @var string
      */
-    const HOST = 'mysql';
+    const HOST = 'localhost';
 
     /**
      * Nome do banco de dados
@@ -30,7 +30,7 @@ class Database
      * Senha de acesso ao banco de dados
      * @var string
      */
-    const PASS = 'root';
+    const PASS = '';
 
     /**
      * Nome da tabela a ser manipulada

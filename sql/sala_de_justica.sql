@@ -31,7 +31,7 @@ CREATE TABLE `herois` (
   `id` int NOT NULL,
   `nome` varchar(250) NOT NULL,
   `identidade_secreta` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `herois`

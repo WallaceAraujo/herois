@@ -14,8 +14,9 @@
 
     <div class="container">
 
-      <div class="jumbotron bg-danger">
-        <h1>Departamento pessoal</h1>
+      <div class="jumbotron bg-dark">
+
+        <img src="http://localhost/img/882622.jpg" width= "1000px" height="500px">
 
       </div>
 
