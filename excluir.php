@@ -13,7 +13,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
 //CONSULTA O HEROI
 $obHeroi = Heroi::getHeroi($_GET['id']);
 
-//VALIDAÇÃO DA VAGA
+//VALIDAÇÃO DA HEROI
 if (!$obHeroi instanceof Heroi) {
     header('location: index.php?status=error');
     exit;
