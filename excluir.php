@@ -10,7 +10,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     exit;
 }
 
-//CONSULTA A VAGA
+//CONSULTA O HEROI
 $obHeroi = Heroi::getHeroi($_GET['id']);
 
 //VALIDAÇÃO DA VAGA

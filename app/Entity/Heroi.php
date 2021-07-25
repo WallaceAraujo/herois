@@ -34,12 +34,12 @@ class Heroi
 
 
     /**
-     * Método responsável por cadastrar uma nova vaga no banco
+     * Método responsável por cadastrar um novo heroi no banco
      * @return boolean
      */
     public function cadastrar()
     {
-        //INSERIR A VAGA NO BANCO
+        //INSERIR o heroi NO BANCO
         $obDatabase = new Database('herois');
 
         $this->id = $obDatabase->insert([
@@ -61,7 +61,7 @@ class Heroi
     }
 
     /**
-     * Método responsável por atualizar a vaga no banco
+     * Método responsável por atualizar o heroi no banco
      * @return boolean
      */
     public function atualizar()
@@ -85,7 +85,7 @@ class Heroi
     }
 
     /**
-     * Método responsável por excluir a vaga do banco
+     * Método responsável por excluir o heroi do banco
      * @return boolean
      */
     public function excluir()
@@ -95,7 +95,7 @@ class Heroi
     }
 
     /**
-     * Método responsável por obter as vagas do banco de dados
+     * Método responsável por obter os herois do banco de dados
      * @param string $where
      * @param string $order
      * @param string $limit
@@ -116,7 +116,7 @@ class Heroi
     }
 
     /**
-     * Método responsável por buscar uma vaga com base em seu ID
+     * Método responsável por buscar um heroi com base em seu ID
      * @param integer $id
      * @return Heroi
      */

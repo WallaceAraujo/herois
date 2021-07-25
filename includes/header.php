@@ -17,10 +17,10 @@
             /* Essa linha coloca uma imagem como fundo do elemento */
             background-image: url('img/882622.jpg');
 
-            /* Essa linha coloca redimensiona a imagem para o mesmo tamanho do elemento */
+            /* Essa linha redimensiona a imagem para o mesmo tamanho do elemento */
             background-size: cover;
 
-            /* Essa linha coloca o yamnho vertical em 350px */
+            /* Essa linha coloca o tamnho vertical em 350px */
             height: 350px
         }
     </style>

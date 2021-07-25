@@ -12,7 +12,7 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     exit;
 }
 
-//CONSULTA A VAGA
+//CONSULTA O HEROI
 $obHeroi = Heroi::getHeroi($_GET['id']);
 
 $poderes = '';
@@ -30,7 +30,7 @@ foreach($obHeroi->poderes as $poder){
 
 $obHeroi->poderes = $poderes;
 
-//VALIDAÇÃO DA VAGA
+//VALIDAÇÃO DoO HEROI
 if (!$obHeroi instanceof Heroi) {
     header('location: index.php?status=error');
     exit;
