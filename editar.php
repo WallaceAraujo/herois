@@ -30,7 +30,7 @@ foreach($obHeroi->poderes as $poder){
 
 $obHeroi->poderes = $poderes;
 
-//VALIDAÇÃO DoO HEROI
+//VALIDAÇÃO DO HEROI
 if (!$obHeroi instanceof Heroi) {
     header('location: index.php?status=error');
     exit;
